@@ -18,7 +18,7 @@ function Card({ title, user, comments = [], id, setDragged, setShowModal, setDet
     }
 
     return(
-        <div draggable onDragStart={handleDragStart} onClick={handleClick} className="flex flex-col gap-4 text-gray-900 bg-white p-2 rounded-sm">
+        <div draggable onDragStart={handleDragStart} onClick={handleClick} className="flex flex-col gap-4 text-black weign font-light bg-white p-2 rounded-sm">
             <div className="flex justify-between items-center">
                 <p>{title}</p>
                 <span>

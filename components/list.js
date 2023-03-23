@@ -1,9 +1,19 @@
 import Image from "next/image"
+import CreateCard from "./create-card";
+import { useState } from "react"
 
-function List({ title, children, handleDrop, id }) {
+function List({ title, children, handleDrop, listOfLists, setListOfLists, id }) {
+
+    const [ showButtons, setShowButtons ] = useState(false);
+    const [ showAddCard, setShowAddCard ] = useState(true);
 
     function handleDragOver(event){
         event.preventDefault();
+    }
+
+    function handleClick(event){
+        setShowAddCard(false)
+        setShowButtons(true)
     }
 
     return (
@@ -16,10 +26,16 @@ function List({ title, children, handleDrop, id }) {
                 <div className="flex flex-col gap-4 flex-1 overflow-auto">
                     { children }
                 </div>
-                <div className="flex items-center gap-1">
-                    <Image src="/add.svg" height={32} width={32} alt="Icono de Opciones" />
-                    <span className="text-base">Añada otra tarjeta</span>
-                </div>
+                {
+                    showAddCard ?
+                    <div className="flex items-center gap-1 cursor-pointer text-gray-600" onClick={handleClick}>
+                        <Image src="/add.svg" height={32} width={32} alt="Icono de Opciones" />
+                        <span className="text-base">Añada otra tarjeta</span>
+                    </div> : null
+                }
+                {
+                    showButtons ? <CreateCard setShowButtons={setShowButtons} setShowAddCard={setShowAddCard} listOfLists={listOfLists} setListOfLists={setListOfLists} idList={id} /> : null
+                }
             </div>
         </div>
     )

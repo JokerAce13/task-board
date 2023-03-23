@@ -5,10 +5,11 @@ import { todoList, inProgressList, doneList } from "./data"
 import Image from "next/image"
 import Button from "./button"
 import DetailCard from "./detail-card"
-import Overlay from "./overlay"
+import Invite from "./invite"
 
 function Board() {
 
+    const [ showInvite, setShowInvite ] = useState(false);
     const [ showModal, setShowModal ] = useState(false);
     const [ detailContent, setDetailContent ] = useState();
     const [ dragged, setDragged ] = useState(null);
@@ -34,7 +35,7 @@ function Board() {
     }
 
     return(
-        <div className="flex flex-col flex-1 p-4 gap-4">
+        <div className="flex flex-col flex-1 p-4 gap-4 font-inter">
             <div className="flex items-center gap-4">
                 <h1 className="text-2xl font-bold">Development</h1>
                 <div className="flex items-center p-4 border-x-2 border-white relative pr-20">
@@ -45,26 +46,29 @@ function Board() {
                         <Image className="absolute flex-1 inset-x-16" src="/anamaria.png" height={32} width={32} alt="Imagen del Usuario" />
                     </div>
                 </div>
-                <div>
-                    <Button description="invitar"/>
+                <div className="relative">
+                    <Button styles="bg-secondary" description="invitar" setShowInvite={setShowInvite}/>
+                    {
+                        showInvite ? <Invite setShowInvite={setShowInvite}/> : null
+                    }
                 </div>
             </div>
             <main className="flex-1 flex gap-6">
-                <List title="TODO" handleDrop={handleDrop} id="todoList" >
+                <List title="TODO" handleDrop={handleDrop} listOfLists={listOfLists} setListOfLists={setListOfLists} id="todoList" >
                     {
                         listOfLists.todoList.map(item => (
                             <Card {...item} key={item.id} setDragged={setDragged} setShowModal={setShowModal} setDetailContent={setDetailContent} />
                         ))
                     }
                 </List>
-                <List title="In Progress" handleDrop={handleDrop} id="inProgressList">
+                <List title="In Progress" handleDrop={handleDrop} listOfLists={listOfLists} setListOfLists={setListOfLists} id="inProgressList">
                     {
                         listOfLists.inProgressList.map(item => (
                             <Card {...item} key={item.id} setDragged={setDragged} setShowModal={setShowModal} setDetailContent={setDetailContent} />
                         ))
                     }
                 </List>
-                <List title="Done" handleDrop={handleDrop} id="doneList" >
+                <List title="Done" handleDrop={handleDrop} listOfLists={listOfLists} setListOfLists={setListOfLists} id="doneList" >
                     {
                         listOfLists.doneList.map(item => (
                             <Card {...item} key={item.id} setDragged={setDragged} setShowModal={setShowModal} setDetailContent={setDetailContent} />

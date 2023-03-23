@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Button from "./button"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 // function Comment({ createdAt, text, user }) {
 function Comment(props) {
@@ -16,6 +16,10 @@ function Comment(props) {
         timeAgo = new Intl.RelativeTimeFormat('es').format(diffDays, 'days')
     }
 
+    function handleClickClose() {
+        setShowButtons(false)
+    }
+
     return (
         <div className="flex items-start gap-2 text-black">
             <Image className="" src={props.user.avatar} height={32} width={32} alt="Imagen del Usuario" />
@@ -29,8 +33,9 @@ function Comment(props) {
                 {
                     showButtons ?
                     <div className="flex gap-2">
-                        <Button styles="bg-blue-500 text-white" description="Guardar" setShowButtons={setShowButtons}/>
-                        <Button styles="bg-transparent" description="Cancelar" setShowButtons={setShowButtons}/>
+                        {/* <Button styles="bg-blue-500 text-white" description="Guardar" setShowButtons={setShowButtons}/> */}
+                        <Button styles="bg-blue-500 text-white" description="Guardar" setShowButtons={handleClickClose}/>
+                        <Button styles="bg-transparent" description="Cancelar" setShowButtons={handleClickClose}/>
                     </div> : null
                 }
             </div>

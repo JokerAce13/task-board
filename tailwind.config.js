@@ -18,9 +18,10 @@ module.exports = {
       fontSize: {
         logo: "14px"
       },
-      // fontFamily: {
-      //   sans: ['var(--font-inter)', ...fontFamily.sans],
-      // },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif']
+      },
     },
   },
   plugins: [],
