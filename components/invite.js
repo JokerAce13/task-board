@@ -8,7 +8,7 @@ function Invite({setShowInvite}) {
     }
 
     return (
-        <div className="flex flex-col gap-4 p-4 w-96 bg-white rounded text-black absolute z-30 top-12 shadow-2xl">
+        <div className="flex flex-col gap-4 p-4 w-96 bg-white rounded text-black absolute -left-72 z-30 md:left-0 top-12 shadow-2xl">
             <div className="flex justify-between">
                 <h2>Invitar al tablero</h2>
                 <Image className="cursor-pointer" src="/cancel.svg" height={24} width={24} alt="Icono de cancelar o salir" onClick={handleClickClose} />

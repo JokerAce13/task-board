@@ -18,8 +18,8 @@ function DetailCard({ isShow, onClose, detailContent }) {
     }
 
     const modalContent = isShow ? (
-        <div className="fixed inset-0 backdrop-opacity-10 backdrop-invert bg-black/30 font-inter">
-            <div className="w-1/2 flex flex-col fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-4 rounded bg-slate-100 p-4">
+        <div className="fixed inset-0 md:backdrop-opacity-10 md:backdrop-invert md:bg-black/30 font-inter">
+            <div className="flex flex-col h-screen w-screen fixed md:h-auto md:w-1/2 md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 gap-4 md:rounded bg-slate-100 p-4">
                 <div className="flex justify-between">
                     <h2 className="text-gray-900 font-bold text-base">{detailContent.data.title}</h2>
                     <Image src="/cancel.svg" height={24} width={24} alt="Icono de cancelar o salir" onClick={handleCloseClick} />
