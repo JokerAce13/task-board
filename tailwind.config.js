@@ -13,16 +13,21 @@ module.exports = {
     extend: {
       colors: {
         primary: "#519839",
-        secondary: "#7BB16A"
+        secondary: "#7BB16A",
+        grayList: "#EBECF0",
+        grayText: "#5E6C84",
+        grayDetail: "#F4F5F7",
+        blueButton: "#1B90FC",
       },
       fontSize: {
         logo: "14px"
       },
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif'],
         'inter': ['Inter', 'sans-serif']
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-font-inter')()
+  ],
 }

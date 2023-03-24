@@ -32,8 +32,7 @@ function CreateCard({ setShowButtons, setShowAddCard, listOfLists, setListOfList
         <div className="flex flex-col gap-4">
             <input id="inputCreateText" className="p-2 rounded text-black placeholder-slate-500 opacity-100 bg-white"  type="text" placeholder="Introduzca un título para esta tarjeta..."/>
             <div className="flex gap-4">
-                <Button styles="bg-blue-500 text-white" description="Añada tarjeta" setShowButtons={handleClickAddCard} />
-                {/* <Image className="cursor-pointer" src="/cancel.svg" height={24} width={24} alt="Icono de cancelar o salir" onClick={() => setShowButtons(false)} /> */}
+                <Button styles="bg-blueButton text-white" description="Añada tarjeta" setShowButtons={handleClickAddCard} />
                 <Image className="cursor-pointer" src="/cancel.svg" height={24} width={24} alt="Icono de cancelar o salir" onClick={handleClickClose} />
             </div>
         </div>

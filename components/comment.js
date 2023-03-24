@@ -2,7 +2,6 @@ import Image from "next/image"
 import Button from "./button"
 import { useState } from "react"
 
-// function Comment({ createdAt, text, user }) {
 function Comment(props) {
 
     let timeAgo = ''
@@ -26,15 +25,14 @@ function Comment(props) {
             <div className="flex flex-col flex-1 gap-2">
                 <div className="flex gap-2 items-center">
                     <span className="font-bold">{props.user.name}</span>
-                    <span className="text-slate-400">{timeAgo}</span>
+                    <span className="text-grayText">{timeAgo}</span>
                 </div>
-                <span className="p-2 flex-1 bg-white rounded text-black placeholder-slate-400">{props.text}</span>
-                <a className="underline text-slate-500" href="#" onClick={() => setShowButtons(true)}>Responder</a>
+                <span className="p-2 flex-1 bg-white rounded text-black placeholder-grayText">{props.text}</span>
+                <a className="underline text-grayText" href="#" onClick={() => setShowButtons(true)}>Responder</a>
                 {
                     showButtons ?
                     <div className="flex gap-2">
-                        {/* <Button styles="bg-blue-500 text-white" description="Guardar" setShowButtons={setShowButtons}/> */}
-                        <Button styles="bg-blue-500 text-white" description="Guardar" setShowButtons={handleClickClose}/>
+                        <Button styles="bg-blueButton text-white" description="Guardar" setShowButtons={handleClickClose}/>
                         <Button styles="bg-transparent" description="Cancelar" setShowButtons={handleClickClose}/>
                     </div> : null
                 }

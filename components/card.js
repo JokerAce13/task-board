@@ -3,7 +3,6 @@ import Image from "next/image"
 function Card({ title, user, comments = [], id, setDragged, setShowModal, setDetailContent }) {
 
     function handleDragStart(event){
-        console.log(event.target.closest('[data-id]').dataset.id)
         setDragged({
             data: { title, user, comments, id },
             list: event.target.closest('[data-id]').dataset.id
@@ -18,7 +17,7 @@ function Card({ title, user, comments = [], id, setDragged, setShowModal, setDet
     }
 
     return(
-        <div draggable onDragStart={handleDragStart} onClick={handleClick} className="flex flex-col gap-4 text-black weign font-light bg-white p-2 rounded-sm">
+        <div draggable onDragStart={handleDragStart} onClick={handleClick} className="flex flex-col gap-4 text-black weign bg-white p-2 rounded-sm font-normal">
             <div className="flex justify-between items-center">
                 <p>{title}</p>
                 <span>
